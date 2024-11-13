@@ -37,6 +37,25 @@ function GenerateComplaint() {
       if (response.ok) {
         const data = await response.json();
         setComplaintLetter(data.complaint_letter);
+  
+        // Send the complaint letter via email
+        const emailResponse = await fetch('http://127.0.0.1:1000/send-complaint', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            // complainant_email: formData.complainant_email,
+            complaint_letter: data.complaint_letter
+          })
+        });
+  
+        if (emailResponse.ok) {
+          alert('Complaint letter generated and sent via email!');
+        } else {
+          const errorData = await emailResponse.json();
+          alert(`Error sending email: ${errorData.error}`);
+        }
       } else {
         throw new Error('Failed to generate complaint letter');
       }
