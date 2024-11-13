@@ -30,13 +30,18 @@ const ChatMessage: React.FC<{ message: string; isUser: boolean }> = ({ message, 
     }
   }, [message, isUser]);
 
+  const formatMessage = (message: string) => {
+    const formattedText = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    return <span dangerouslySetInnerHTML={{ __html: formattedText }} />;
+  };
+
   return (
     <div className={`flex w-full py-2 px-4 ${isUser ? 'justify-end' : 'justify-start'}`}>
       <div className={`max-w-3/4 rounded-2xl p-3 ${isUser ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white' : 'bg-gray-200 text-gray-800 shadow-md'}`}>
         {isTyping ? (
           <div className="animate-pulse">•••</div>
         ) : (
-          <div className="whitespace-pre-wrap">{displayText}</div>
+          <div className="whitespace-pre-wrap">{formatMessage(displayText)}</div>
         )}
       </div>
     </div>
