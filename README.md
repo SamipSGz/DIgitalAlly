@@ -1,4 +1,26 @@
 
+# Digital Ally
+
+**Digital Ally for Women’s Rights** is an AI-powered platform that helps activists and communities track, document, and report women’s rights violations. It monitors news, social media, and official reports in real time, connects users to support networks, and provides tools for automated reporting and legal aid. The platform empowers global advocacy for women’s rights and safety.
+
+
+## Core Features
+- **Real-Time Monitoring**: AI-powered monitoring of news outlets, social media, and government reports to identify women’s rights violations.
+- **Automated Reporting**: Upload and document incidents using text, images, videos, and voice recordings. Automatic report generation using computer vision and speech recognition.
+- **Geospatial Analytics**: Visualize and analyze hotspots for women’s rights violations using geospatial data.
+- **Support Network Integration**: Connect users with local and international NGOs, legal aid, and emotional support resources.
+- **Legal Aid and Advocacy**: Automatically generate legal documents and connect users to legal professionals for immediate assistance.
+- **Sentiment Analysis for Social Movements**: Track social media movements, such as #MeToo, and provide actionable insights for advocacy.
+- **Crisis Alerts**: Real-time alerts for escalating rights violations to prompt immediate action from local activists and legal networks.
+
+
+## Built with
+- React
+- Node
+- Firebase
+- Gemini API
+
+
 ## Installation
 
 ### 1. Clone the Repository
@@ -68,6 +90,12 @@ python main.py
 npm run dev
 ```
 
+
+
+## Authors
+
+- [@SamipSGz](https://github.com/SamipSGz)
+- [@rebeccabas](https://github.com/rebeccabas)
 
 
 
