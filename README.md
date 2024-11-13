@@ -37,6 +37,7 @@ Share your concerns and experiences with ....
 ## Built with
 - React
 - Node
+- FastAPI
 - Firebase
 - Gemini API
 
