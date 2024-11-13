@@ -5,13 +5,33 @@
 
 
 ## Core Features
-- **Real-Time Monitoring**: AI-powered monitoring of news outlets, social media, and government reports to identify women’s rights violations.
-- **Automated Reporting**: Upload and document incidents using text, images, videos, and voice recordings. Automatic report generation using computer vision and speech recognition.
-- **Geospatial Analytics**: Visualize and analyze hotspots for women’s rights violations using geospatial data.
-- **Support Network Integration**: Connect users with local and international NGOs, legal aid, and emotional support resources.
-- **Legal Aid and Advocacy**: Automatically generate legal documents and connect users to legal professionals for immediate assistance.
-- **Sentiment Analysis for Social Movements**: Track social media movements, such as #MeToo, and provide actionable insights for advocacy.
-- **Crisis Alerts**: Real-time alerts for escalating rights violations to prompt immediate action from local activists and legal networks.
+- Global Incident Map
+
+Track and monitor women's rights violations worldwide
+Visualize incident locations on an interactive map
+Explore details about the reported incidents
+
+- Report an Incident
+
+Report incidents safely and securely through a user-friendly form
+Incident type selection (e.g., harassment)
+Provide a detailed description of the incident
+Locate the incident on the map
+Attach photos and voice notes as evidence
+Option to submit the report anonymously
+
+- Resource Hub
+
+Access a wide range of support services and educational resources
+ 1. Emergency Hotlines: 24/7 crisis support and emergency services
+ 2. Legal Resources: Free legal aid and documentation
+ 3. Support Groups: Connect with local support networks
+ 4. Counseling: Professional mental health support
+
+- Sahayak: Your Digital Support
+
+Receive digital support for inappropriate behavior or comments
+Share your concerns and experiences with ....
 
 
 ## Built with
