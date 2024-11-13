@@ -46,13 +46,39 @@ const ChatMessage: React.FC<{ message: string; isUser: boolean }> = ({ message, 
 const ChatBot: React.FC = () => {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [inputMessage, setInputMessage] = useState('');
+  const [sessionId, setSessionId] = useState('');
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Generate a session ID on component mount if not exists
+    const storedSessionId = localStorage.getItem('chatSessionId');
+    if (storedSessionId) {
+      setSessionId(storedSessionId);
+      loadChatHistory(storedSessionId);
+    } else {
+      const newSessionId = `session_${Date.now()}`;
+      localStorage.setItem('chatSessionId', newSessionId);
+      setSessionId(newSessionId);
+    }
+  }, []);
 
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   }, [chatMessages]);
+
+  const loadChatHistory = async (sid: string) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/chat-history/${sid}`);
+      if (response.ok) {
+        const data = await response.json();
+        setChatMessages(data.messages || []);
+      }
+    } catch (error) {
+      console.error('Error loading chat history:', error);
+    }
+  };
 
   const handleSendMessage = async () => {
     if (inputMessage.trim()) {
@@ -67,7 +93,8 @@ const ChatBot: React.FC = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ 
-            message: inputMessage
+            message: inputMessage,
+            session_id: sessionId
           }),
           credentials: 'include',
         });
@@ -97,7 +124,7 @@ const ChatBot: React.FC = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-indigo-50 to-pink-50">
       <div className="w-full max-w-2xl p-6 bg-white shadow-lg rounded-lg border border-gray-200">
         <div className="text-center py-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-t-lg text-white">
-          <h1 className="text-2xl font-bold">Sahayak: Your Digital Ally</h1>
+          <h1 className="text-2xl font-bold">Sahayak: Your Digital Support</h1>
           <p className="text-sm">"We are here if you need us! Please dont hesitate to reach out!!"</p>
         </div>
         <div
